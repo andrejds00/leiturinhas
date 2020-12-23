@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "528479029784",
+    "project_id": "leiturinhas-4e0cf",
+    "storage_bucket": "leiturinhas-4e0cf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528479029784:android:0c45b30730d126b614116d",
+        "android_client_info": {
+          "package_name": "com.tallentos.leiturinhas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "528479029784-m2mfgh4615qsmj4k622t9l7ms6miv6g2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDS72NIS_H4vv9BhptG9YpTnZNt9X0ZwHs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "528479029784-m2mfgh4615qsmj4k622t9l7ms6miv6g2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
