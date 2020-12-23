@@ -1,6 +1,6 @@
 # leiturinhas
 
-Leiturinha - Histórias Infantis
+Leiturinhas - Histórias Infantis
 
 ## Getting Started
 
