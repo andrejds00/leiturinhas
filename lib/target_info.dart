@@ -12,7 +12,7 @@ BannerAd myBanner;
 
 void startBanner() {
   myBanner = BannerAd(
-    adUnitId:  'ca-app-pub-8122823024752023/2182871675', //BannerAd.testAdUnitId,
+    adUnitId:  BannerAd.testAdUnitId, //'ca-app-pub-8122823024752023/2182871675',
     size: AdSize.fullBanner,
     targetingInfo: targetingInfo,
     listener: (MobileAdEvent event) {
