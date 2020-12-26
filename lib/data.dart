@@ -45,6 +45,7 @@ Future<List<Book>> getFirebase(String pesquisa) async{
         .getDocuments();
   }else{
     querySnapshot = await Firestore.instance.collection("books")
+    .orderBy("pages", descending: true)
         .getDocuments();
   }
 

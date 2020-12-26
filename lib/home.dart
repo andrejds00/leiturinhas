@@ -55,7 +55,7 @@ class _HomeState extends State<Home> {
                         labelText: "Digite o livro"
                       ),
                       onChanged: (String e){
-                        pesquisa = e;
+                        pesquisa = e.toUpperCase();
                       },
                     ),
                     Row(

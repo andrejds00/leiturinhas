@@ -97,17 +97,12 @@ class _DetailState extends State<Detail> {
         text(
           'Sugerido por: ${book.writer}',
           color: Colors.black54,
-          size: 12,
+          size: 16,
           padding: EdgeInsets.only(top: 8.0, bottom: 16.0),
         ),
         Row(
           children: <Widget>[
-            text(
-              book.price,
-              isBold: true,
-              padding: EdgeInsets.only(right: 8.0),
-            ),
-            text('${book.pages} pages', color: Colors.black38, size: 12)
+            text('${book.pages}° Livro', color: Colors.black38, size: 12)
             //RatingBar(rating: book.rating)
           ],
         ),
