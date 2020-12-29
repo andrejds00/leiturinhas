@@ -1,14 +1,8 @@
 import 'package:flutter/services.dart';
 import 'package:leiturinhas/preferencias.dart';
-
 import 'data.dart';
 import 'package:flutter/material.dart';
-
 import 'helper/AnotacaoHelper.dart';
-
-
-
-
 
 
 class Detail extends StatefulWidget {
@@ -33,6 +27,7 @@ class _DetailState extends State<Detail> {
    var _db = AnotacaoHelper();
    List<Preferencia> _listPreferencias = List<Preferencia>();
    double _tamanhoSlider = 18;
+   int letra = 0xFFFFFFFF, fundo = 0xFF000000;
 
 
   void _configPreferencias() async {
@@ -123,11 +118,11 @@ class _DetailState extends State<Detail> {
 
     ///scrolling text description
     final bottomContent = Container(
-        color: Colors.black,
+        color: Color(fundo),
         padding: EdgeInsets.all(10),
         child: Text(
           book.description.replaceAll('/n', '\n'),
-          style: TextStyle(fontSize: tamanhoLetra, height: 1.5, color: Colors.white70),
+          style: TextStyle(fontSize: tamanhoLetra, height: 1.5, color: Color(letra)),
         )
     );
 
@@ -163,7 +158,7 @@ class _DetailState extends State<Detail> {
 
     List<Preferencia> listPref = List<Preferencia>();
     for( var item in preferencias ){
-      Preferencia p = new Preferencia(item["id"], item["tamanholetra"]);
+      Preferencia p = new Preferencia(item["id"], item["tamanholetra"], item["cortelaleitura"]);
 
       listPref.add(p);
 
@@ -173,6 +168,16 @@ class _DetailState extends State<Detail> {
       _listPreferencias = listPref;
       int i = _listPreferencias.first.tamanholetra;
       tamanhoLetra = i.toDouble();
+
+      if(_listPreferencias.first.corTelaLeitura == "CorTela.branco"){
+
+        letra = 0xFF000000;
+        fundo = 0xFFFFFFFF;
+      }else{
+        letra = 0xFFFFFFFF;
+        fundo = 0xFF000000;
+      }
+
     });
 
     listPref = null;
@@ -180,7 +185,7 @@ class _DetailState extends State<Detail> {
   }
 
   _salvarPreferencias() async{
-    Preferencia preferencia = new Preferencia(null, 18);
+    Preferencia preferencia = new Preferencia(null, 18, "negro");
 
     var resultado = await _db.salvarPreferencias(preferencia);
   }
@@ -222,6 +227,9 @@ class ConfigDialog extends StatefulWidget {
   _ConfigDialogState createState() => _ConfigDialogState();
 }
 
+
+enum CorTela { negro, branco }
+
 class _ConfigDialogState extends State<ConfigDialog> {
   double _fontSize;
 
@@ -233,13 +241,16 @@ class _ConfigDialogState extends State<ConfigDialog> {
     _fontSize = widget.initialFontSize;
   }
 
+  CorTela _character = CorTela.negro;
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text("Definir Tamanho da Letra"),
+      title: Text("Configurações"),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+          Text("Definir Tamanho da Letra"),
           Slider(
             value: _fontSize,
             min: 10,
@@ -251,6 +262,19 @@ class _ConfigDialogState extends State<ConfigDialog> {
               });
             },
           ),
+          Text("Cor tela de leitura"),
+          RadioListTile<CorTela>(
+            title: const Text('Preto'),
+            value: CorTela.negro,
+            groupValue: _character,
+            onChanged: (CorTela value) { setState(() { _character = value; }); },
+          ),
+          RadioListTile<CorTela>(
+            title: const Text('Branco'),
+            value: CorTela.branco,
+            groupValue: _character,
+            onChanged: (CorTela value) { setState(() { _character = value; }); },
+          ),
         ],
       ),
       actions: <Widget>[
@@ -260,7 +284,8 @@ class _ConfigDialogState extends State<ConfigDialog> {
 
           int i = _fontSize.round();
 
-          Preferencia preferencia = new Preferencia(1, i);
+          Preferencia preferencia = new Preferencia(1, i, _character.toString());
+          print("prefe:" + preferencia.corTelaLeitura);
 
           _atualizarPreferencias(preferencia);
 

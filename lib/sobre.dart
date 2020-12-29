@@ -11,13 +11,15 @@ class Sobre extends StatelessWidget {
         padding: EdgeInsets.all(20),
         child: Padding(padding: EdgeInsets.all(10),
          child: Column(
+           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-          Row(children: [Text('App Leiturinhas - Histórias Infantis', style: TextStyle(fontSize: 20),),],),
-      Row(children: [Text('Versão : 1.0'),],),
-      Row(children: [Text('Desenvolvimento : Suporte A Tecnologia'),],),
-      Row(children: [Text('Desenvolvedor : André Jonas'),],),
-      Row(children: [SelectableText('Contato : andrejonasdantas@gmail.com'),],),
-            Row(children: [SelectableText('Linkedin : linkedin.com/in/andré-jonas-7398177a'),],),
+          Text('App Leiturinhas - Histórias Infantis', style: TextStyle(fontSize: 20),),
+
+      Text('Versão : 1.0'),
+      Text('Desenvolvedor : André Jonas'),
+      Text('Patrocínio / Investimento : Gerfesson Alves Dantas'),
+      SelectableText('Contato : dev.tallentos@gmail.com'),
+      SelectableText('Linkedin : linkedin.com/in/andré-jonas-7398177a'),
       ],
     ),
         )

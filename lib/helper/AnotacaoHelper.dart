@@ -28,13 +28,13 @@ class AnotacaoHelper {
 
   inicializarDB()async{
     final caminhoBancoDados = await getDatabasesPath();
-    final localBancoDados = join(caminhoBancoDados, "leiturinhas.db");
+    final localBancoDados = join(caminhoBancoDados, "leiturinhasbd01.db");
 
     var bd = await openDatabase(
         localBancoDados,
         version: 1,
         onCreate: (db, dbVersao){
-          String sql = "CREATE TABLE $tabelaPreferencias (id INTEGER PRIMARY KEY AUTOINCREMENT, tamanholetra INTEGER) ";
+          String sql = "CREATE TABLE $tabelaPreferencias (id INTEGER PRIMARY KEY AUTOINCREMENT, tamanholetra INTEGER, cortelaleitura VARCHAR) ";
 
           db.execute(sql);
         }

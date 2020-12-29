@@ -1,13 +1,15 @@
 class Preferencia {
   int id;
   int tamanholetra;
+  String corTelaLeitura;
 
 
-  Preferencia(this.id, this.tamanholetra);
+  Preferencia(this.id, this.tamanholetra, this.corTelaLeitura);
 
   Map toMap() {
     Map<String, dynamic> dadosPreferencia = {
       "tamanholetra" : this.tamanholetra,
+      "cortelaleitura": this.corTelaLeitura
 
     };
 

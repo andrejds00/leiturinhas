@@ -1,7 +1,7 @@
 import 'package:firebase_admob/firebase_admob.dart';
 
 MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
-  keywords: <String>['brinquedos', 'jogos infantis'],
+  //keywords: <String>['brinquedos', 'jogos infantis'],
   contentUrl: 'https://flutter.io',
   childDirected: false,
   testDevices: <String>[],
@@ -12,7 +12,7 @@ BannerAd myBanner;
 
 void startBanner() {
   myBanner = BannerAd(
-    adUnitId:  BannerAd.testAdUnitId, //'ca-app-pub-8122823024752023/2182871675',
+    adUnitId: 'ca-app-pub-8122823024752023/2182871675', //BannerAd.testAdUnitId,
     size: AdSize.fullBanner,
     targetingInfo: targetingInfo,
     listener: (MobileAdEvent event) {
