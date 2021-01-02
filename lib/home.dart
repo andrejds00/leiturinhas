@@ -181,7 +181,8 @@ class _HomeState extends State<Home> {
 
     //Body
     grid() {
-      return CustomScrollView(
+      return Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 50),
+      child: CustomScrollView(
         primary: false,
         slivers: [
           SliverPadding(
@@ -195,7 +196,9 @@ class _HomeState extends State<Home> {
             ),
           )
         ],
+      ),
       );
+
     }
 
     //Estrutura Esqueleto

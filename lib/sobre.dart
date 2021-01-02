@@ -17,7 +17,7 @@ class Sobre extends StatelessWidget {
 
       Text('Versão : 1.0'),
       Text('Desenvolvedor : André Jonas'),
-      Text('Patrocínio / Investimento : Gerfesson Alves Dantas'),
+      Text('Patrocínio / Investimento : Gerfeson Alves Dantas'),
       SelectableText('Contato : dev.tallentos@gmail.com'),
       SelectableText('Linkedin : linkedin.com/in/andré-jonas-7398177a'),
       ],
