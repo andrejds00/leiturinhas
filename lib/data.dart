@@ -17,22 +17,6 @@ class Book {
 
 List<Book> booksData = new List();
 
-/*List<Book> ListBooks() {
-  List<Book> books = new List();
-  books = [
-    Book('Buku Pintar Drafter Untuk Pemula Hingga Mahir', 'Widada', 'Rp 55.000',
-        'images/corel.jpg', '4.5', '1'),
-    Book('Adobe InDesign: Seri Panduan Terlengkap', 'Jubilee Enterprise',
-        'Rp 60.000', 'images/corel.jpg', '5.0', '1'),
-    Book('Pemodelan Objek Dengan 3Ds Max 2014', 'Wahana Komputer', 'Rp 58.000',
-        'images/corel.jpg', '3.0', '1'),
-  ];
-  books.add(Book('fdsfdster Series : Tdsfdsfdpat Menguasai CSS', 'Wahana Komputer',
-      'Rp 54.000', 'images/corel.jpg', '3.5', '1'));
-
-
-  return books;
-}*/
 
 Future<List<Book>> getFirebase(String pesquisa) async{
   booksData = new List();
@@ -56,4 +40,19 @@ Future<List<Book>> getFirebase(String pesquisa) async{
     booksData.add(book);
   }
   return booksData;
+}
+
+salvarSugestoes(String titulo, String nome){
+  Firestore db = Firestore.instance;
+
+  Map<String, dynamic> dadosSugestao = {
+      "titulo" : titulo,
+      "nome": nome
+
+    };
+
+  db.collection("sugestoes")
+  .add(dadosSugestao);
+
+
 }

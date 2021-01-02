@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:leiturinhas/data.dart';
 import 'package:leiturinhas/doacao.dart';
 import 'package:leiturinhas/sobre.dart';
+import 'package:leiturinhas/sugestoes.dart';
 import 'package:leiturinhas/target_info.dart';
 
 class Home extends StatefulWidget {
@@ -148,6 +149,13 @@ class _HomeState extends State<Home> {
             title: Text('Sobre'),
             onTap: (){
               Navigator.push(context, MaterialPageRoute(builder: (context) => Sobre()));
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.auto_stories),
+            title: Text('Sugestões de Livros'),
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => Sugestoes()));
             },
           ),
           ListTile(
